@@ -32,10 +32,24 @@ const totalNumberCards = () => {
 let btnCardAmount = document.getElementById("btnCardAmount");
 btnCardAmount.addEventListener("click", totalNumberCards);
 
+
+
+
+
+// === NEW SECTION ===
 function Cards(face, symbol, color){
     this.face = face;
     this.symbol = symbol;
     this.color = color;
+    this.stamp = function (){
+        let cardTemp = 300;
+        if (this.color === "Red"){
+            cardTemp = 350;
+        } else if (this.color === "Black"){
+            cardTemp = 375;
+        }
+        return cardTemp;
+    }
 }
 
 function addNewOne(){
@@ -60,3 +74,19 @@ function showDeck (){
     });
 }
 let btnNewCard2 = document.getElementById("btnNewCard2").addEventListener("click", addNewCard2);
+
+let newInventory = [];
+function makeNewInventory(){
+    inventory.forEach((item, index) => {
+        newInventory.push(makeCard(item.face, item.symbol, item.color))
+    });
+}
+makeNewInventory();
+
+const createCard = () => {
+    let item = newInventory[0];
+    let cardTemp = item.stamp();
+    console.log("Item Chosen", item,"Card Temp", cardTemp);
+}
+
+let btnCardStamp = document.getElementById("btnCardStamp").addEventListener("click", createCard);

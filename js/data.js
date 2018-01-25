@@ -1,12 +1,12 @@
 let inventory = [
     {
-        face: "A",
-        symbol: "Spade",
+        face: "Ace",
+        symbol: "Spades",
         color: "Black"
     },
     {
         face: "5",
-        symbol: "Diamond",
+        symbol: "Diamonds",
         color: "Red"
     }
 ];
